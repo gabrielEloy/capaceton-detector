@@ -33,6 +33,7 @@ class Prediction extends Component {
     const width = screen.w;
     const height = 150;
     const rectHeight = height/2 - 10;
+    console.log(`image detected: ${this.state.hotdog} / screen position: ${this.state.screen} `)
     return (
       <Animatable.View animation="slideInDown" style={styles.container}>
         <Svg
@@ -82,7 +83,7 @@ class Prediction extends Component {
               y={height/4 + 10}
               textAnchor="middle"
             >
-              {hotdog? "Hotdog!": "Not hotdog!"}
+              {hotdog? "Capacete!": "Não é Capacete!"}
             </Text> 
           </Svg>
         </Animatable.View>
@@ -99,3 +100,4 @@ const styles = StyleSheet.create({
 });
 
 export default Prediction;
+

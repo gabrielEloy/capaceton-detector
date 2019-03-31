@@ -96,6 +96,7 @@ export default class App extends Component {
 
       if (add) {
         cnt++;
+        console.log(results[i])
         rects.push({...results[i].rect, confidence: results[i].confidenceInClass});
       }
     }
@@ -124,6 +125,7 @@ export default class App extends Component {
 
   render() {
     const {imageURI, evaluating, rects, screen, image} = this.state;
+    console.log( imageURI )
     return (
       <View style={styles.container} onLayout={this._updateDimensions.bind(this)}>
         <RNCamera
