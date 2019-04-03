@@ -18,7 +18,7 @@ public class TensorFlowYoloDetector {
   private static final String YOLO_OUTPUT_NAMES = "output";
   private static final int YOLO_BLOCK_SIZE = 32;
 
-  private static final int NUM_CLASSES = 3;
+  private static final int NUM_CLASSES = 1;
   private static final int NUM_BOXES_PER_BLOCK = 5;
 
   private static final double[] ANCHORS = {
