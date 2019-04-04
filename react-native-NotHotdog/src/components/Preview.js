@@ -39,7 +39,8 @@ class Preview extends Component {
         </View>
         <BndBox rects={rects} image={image}/>
         <Prediction hotdog={hotdog} screen={screen} />
-        <Share hotdog={hotdog} onClear={this.props.onClear}/>
+        {//<Share hotdog={hotdog} onClear={this.props.onClear}/>
+        }
       </View>
     );
   }

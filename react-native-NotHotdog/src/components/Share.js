@@ -53,27 +53,8 @@ class ShareResult extends Component {
     const {hotdog, onClear} = this.props;
     return (
         <View style={styles.container}>
-          <TouchableOpacity style={styles.button} onPress={this.onShare.bind(this, hotdog)}>
-            <Text style={styles.text}>Share</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.clearButton} onPress={onClear}>
-            <Svg
-                height="30"
-                width="100"
-              >
-                <SvgText
-                  fill="white"
-                  stroke="black"
-                  strokeWidth="0.6"
-                  fontWeight="bold"
-                  fontSize="18"
-                  x="50"
-                  y="20"
-                  textAnchor="middle"
-                >
-                  No Thanks
-                </SvgText> 
-              </Svg>
+          <TouchableOpacity style={styles.button} onPress={onClear}>
+            <Text style={styles.text}>Tentar Novamente</Text>
           </TouchableOpacity>
         </View>
     );
