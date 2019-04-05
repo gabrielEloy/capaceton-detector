@@ -176,7 +176,7 @@ tensorflow::Status LoadModel(NSString* file_name, NSString* file_type,
 
 
 NSMutableArray* ParseOutput(const Eigen::TensorMap<Eigen::Tensor<float, 1, Eigen::RowMajor>, Eigen::Aligned>& output) {
-  const int NUM_CLASSES = 1;
+  const int NUM_CLASSES = 3;
   const int NUM_BOXES_PER_BLOCK = 5;
   double ANCHORS[] = {
     0.57273, 0.677385, 1.87446, 2.06253, 3.33843, 5.47434, 7.88282, 3.52778, 9.77052, 9.16828
