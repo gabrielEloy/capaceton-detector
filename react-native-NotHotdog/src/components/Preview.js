@@ -39,8 +39,8 @@ class Preview extends Component {
         </View>
         <BndBox rects={rects} image={image}/>
         <Prediction hotdog={hotdog} screen={screen} />
-        {//<Share hotdog={hotdog} onClear={this.props.onClear}/>
-        }
+        <Share hotdog={hotdog} onClear={this.props.onClear}/>
+        
       </View>
     );
   }
@@ -59,3 +59,6 @@ const styles = StyleSheet.create({
 });
 
 export default Preview;
+
+
+// ./darknet detect cfg/yolo-obj.cfg backup/yolo-obj_19000.weights data/worker204.jpg

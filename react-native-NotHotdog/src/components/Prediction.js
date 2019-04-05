@@ -83,7 +83,7 @@ class Prediction extends Component {
               y={height/4 + 10}
               textAnchor="middle"
             >
-              {hotdog? "Capacete!": "Não é Capacete!"}
+              {hotdog? "Capacete!": "Não é capacete"}
             </Text> 
           </Svg>
         </Animatable.View>
