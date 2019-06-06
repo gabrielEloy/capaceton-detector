@@ -60,11 +60,9 @@ export default class App extends Component {
 
     if (!(results && results.length > 0)) return;
 
-    results.sort((a, b) => {
-      return a.confidenceInClass < b.confidenceInClass;
-    })
+    
 
-    var rects = [{...results[0].rect, confidence: results[0].confidenceInClass}];
+    var rects = [{...results[0].rect, confidence: results[0].confidenceInClass, detectedClass: results[0].detectedClass }];
 
     var cnt = 0;
     for (i = 1; i < results.length; i++) {
@@ -96,8 +94,8 @@ export default class App extends Component {
 
       if (add) {
         cnt++;
-        console.log(results[i])
-        rects.push({...results[i].rect, confidence: results[i].confidenceInClass});
+        rects.push({...results[i].rect, confidence: results[i].confidenceInClass, detectedClass: results[i].detectedClass});
+        console.log('isso são os resultados no index', results)
       }
     }
 
@@ -105,7 +103,7 @@ export default class App extends Component {
     var ratioW = image.w / yoloW;
 
     rects = rects.map((rect) => {
-      var newRect = {x: rect.x * ratioW, y: rect.y * ratioH, w: rect.w * ratioW, h: rect.h * ratioH, confidence: rect.confidence};
+      var newRect = {x: rect.x * ratioW, y: rect.y * ratioH, w: rect.w * ratioW, h: rect.h * ratioH, confidence: rect.confidence, detectedClass: rect.detectedClass};
       return newRect;
     });
 
@@ -125,7 +123,6 @@ export default class App extends Component {
 
   render() {
     const {imageURI, evaluating, rects, screen, image} = this.state;
-    console.log( imageURI )
     return (
       <View style={styles.container} onLayout={this._updateDimensions.bind(this)}>
         <RNCamera

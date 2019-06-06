@@ -9,6 +9,7 @@ import Prediction from "./Prediction";
 import BndBox from "./BndBox";
 import Share from "./Share";
 
+
 class Preview extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +23,7 @@ class Preview extends Component {
   componentWillReceiveProps(nextProps) {
     const {rects, screen, image} = nextProps;
     this.setState({ rects, screen, image });  
+    console.log('isso são os rects em preview', rects)
   }
 
   render() {
@@ -38,7 +40,7 @@ class Preview extends Component {
           />
         </View>
         <BndBox rects={rects} image={image}/>
-        <Prediction hotdog={hotdog} screen={screen} />
+        <Prediction hotdog={hotdog} screen={screen} rects={rects} />
         <Share hotdog={hotdog} onClear={this.props.onClear}/>
         
       </View>

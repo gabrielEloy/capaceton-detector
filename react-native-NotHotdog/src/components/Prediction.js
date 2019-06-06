@@ -20,6 +20,7 @@ class Prediction extends Component {
     this.state = {
       hotdog: props.hotdog,
       screen: props.screen,
+      rects: props.rects
     };
   }
 
@@ -28,8 +29,16 @@ class Prediction extends Component {
     this.setState({ hotdog, screen }); 
   }
 
+  componentWillReceiveProps(nextProps){
+    const { rects } = nextProps;
+    this.setState({ rects })
+    console.log('received Props', rects)
+  }
+
+
   render() {
     const {hotdog, screen} = this.state;
+    console.log('isso é o hotDog', hotdog)
     const width = screen.w;
     const height = 150;
     const rectHeight = height/2 - 10;
@@ -83,7 +92,7 @@ class Prediction extends Component {
               y={height/4 + 10}
               textAnchor="middle"
             >
-              {hotdog? "Capacete!": "Não é capacete"}
+              {hotdog? this.getNames(this.state.rects) : "Não é capacete"}
             </Text> 
           </Svg>
         </Animatable.View>
