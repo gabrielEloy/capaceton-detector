@@ -222,7 +222,7 @@ NSMutableArray* ParseOutput(const Eigen::TensorMap<Eigen::Tensor<float, 1, Eigen
         }
         
         float confidenceInClass = maxClass * confidence;
-        if (confidenceInClass > 0.5) {
+        if (confidenceInClass > 0.2) {
           NSMutableDictionary* rect = [NSMutableDictionary dictionary];
           NSMutableDictionary* res = [NSMutableDictionary dictionary];
           

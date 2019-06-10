@@ -13,6 +13,7 @@ import Svg,{
 } from 'react-native-svg';
 
 import * as Animatable from 'react-native-animatable';
+import { stringify } from 'querystring';
 
 class Prediction extends Component {
   constructor(props) {
@@ -92,7 +93,7 @@ class Prediction extends Component {
               y={height/4 + 10}
               textAnchor="middle"
             >
-              {hotdog? this.getNames(this.state.rects) : "Não é capacete"}
+              {hotdog? stringify(this.state.rects) : "Não é capacete"}
             </Text> 
           </Svg>
         </Animatable.View>
