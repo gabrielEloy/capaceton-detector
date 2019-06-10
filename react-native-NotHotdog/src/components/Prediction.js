@@ -15,13 +15,15 @@ import Svg,{
 import * as Animatable from 'react-native-animatable';
 
 
+
 class Prediction extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hotdog: props.hotdog,
       screen: props.screen,
-      rects: props.rects
+      rects: props.rects,
+      classes: ''
     };
   }
 
@@ -32,14 +34,24 @@ class Prediction extends Component {
 
   componentWillReceiveProps(nextProps){
     const { rects } = nextProps;
-    this.setState({ rects })
+    const classes = this.getNumbers(rects)
+    this.setState({ rects, classes })
     console.log('received Props', rects)
+  }
+
+  getNumbers = (array) => {
+    let yoyo = ''
+    for(let prediction of array){
+      yoyo += prediction.detectedClass
+    }
+    console.log('yoyo', yoyo)
+    return yoyo
   }
 
 
   render() {
     const {hotdog, screen} = this.state;
-    console.log('isso é o hotDog', hotdog)
+    
     const width = screen.w;
     const height = 150;
     const rectHeight = height/2 - 10;
@@ -93,7 +105,7 @@ class Prediction extends Component {
               y={height/4 + 10}
               textAnchor="middle"
             >
-              {hotdog? stringify(this.state.rects) : "Não é capacete"}
+              {this.state.rects.length > 0 ?  this.state.classes : "Não é capacete"}
             </Text> 
           </Svg>
         </Animatable.View>
