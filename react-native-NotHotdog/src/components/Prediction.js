@@ -13,7 +13,7 @@ import Svg,{
 } from 'react-native-svg';
 
 import * as Animatable from 'react-native-animatable';
-import { stringify } from 'querystring';
+
 
 class Prediction extends Component {
   constructor(props) {
