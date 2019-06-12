@@ -88,11 +88,9 @@ class Prediction extends Component {
         >
           <G fill="white" stroke="white" strokeWidth="4">
               <Circle cx={width/2} cy={height*2/3} r={height/3} />
-              <Rect x="0" y="0" width={width} height={rectHeight} />
           </G>
           <G fill={this.state.rects > 0 ? "lime": "red"}>
               <Circle cx={width/2} cy={height*2/3} r={height/3} />
-              <Rect x="0" y="0" width={width} height={rectHeight} />
           </G>
           <Image
             x={(width - height/2)/2}
@@ -121,18 +119,30 @@ class Prediction extends Component {
             width={width}
           >
             <Text
-              fill="yellow"
+              fill="white"
               stroke="black"
               fontSize="30"
               fontWeight="bold"
               x={width/2}
-              y={height/4 + 10}
+              y={height/4 - 5}
               textAnchor="middle"
             >
               {this.state.rects.length > 0 ?  this.state.classes : "Nenhum EPI detectado"}
             </Text> 
           </Svg>
         </Animatable.View>
+        <Svg style={{top: 300}}
+        height="200"
+        width="200">
+          <Text
+          fill="white"
+          stroke="black"
+          fontSize="30"
+          fontWeight="bold"
+          x={width/2}
+          y={height/4 - 5}
+          textAnchor="middle">blabla</Text>
+        </Svg>
       </Animatable.View>
     );
   }

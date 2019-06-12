@@ -16,6 +16,54 @@ import Share from 'react-native-share';
 var RNFS = require('react-native-fs');
 
 class ShareResult extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      classes: []
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { rects } = nextProps;
+    const classes = this.getNames(rects)
+    this.setState({ classes })
+    console.log('received Props', rects)
+  }
+
+  getNames = (array) => {
+    if(array.length > 0){
+      let yoyo = []
+    for(let prediction of array){
+      let name = ''
+      switch(prediction.detectedClass){
+        case 0: 
+          name = 'colete'
+          break;
+        case 1:
+          name = 'óculos'
+          break;
+        case 2:
+          name = 'bota'
+          break;
+        case 3:
+          name = 'capacete'
+          break;
+        case 4:
+          name = 'capacete'
+          break;
+        case 6:
+          name = 'protetor'
+          break;
+      }
+      yoyo.push(name)
+    }
+    console.log('yoyo', yoyo)
+    return yoyo
+    }
+    else return;
+  }
+
+
   onShare(hotdog) {
     var image = hotdog? 'badgehotdog.jpg': 'badgenothotdog.jpg';
 
@@ -49,12 +97,20 @@ class ShareResult extends Component {
     }
   }
 
+  showDetected = () => {
+    console.log(this.state.classes)
+  }
+
   render() {
     const {hotdog, onClear} = this.props;
     return (
         <View style={styles.container}>
           <TouchableOpacity style={styles.button} onPress={onClear}>
             <Text style={styles.text}>Tentar Novamente</Text>
+          </TouchableOpacity>
+         
+          <TouchableOpacity style={styles.button2} onPress={this.showDetected}>
+            <Text style={{color: 'white', fontSize: 30}}>+</Text>
           </TouchableOpacity>
         </View>
     );
@@ -63,20 +119,32 @@ class ShareResult extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     position: 'absolute',
     backgroundColor: 'transparent',
     alignSelf: "center",
-    bottom: 30
+    bottom: 30,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   },
   button: {
     height: 55,
     width: 200,
-    borderColor: "white",
-    borderWidth: 2,
-    borderRadius: 5,
+    borderRadius: 30,
     alignItems: "center",
     justifyContent: 'center',
-    backgroundColor: '#25d5fd',
+    backgroundColor: '#00345b',
+    marginRight: 20
+  },
+  button2: {
+    height: 55,
+    width: 50,
+    color: 'white',
+    borderColor: "white",
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: 'center',
+    backgroundColor: '#00345b',
   },
   text: {
     fontSize: 20,
