@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: 'transparent',
     alignSelf: "center",
-    bottom: 0
+    bottom: 30
   },
   button: {
     height: 55,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#25d5fd',
   },
   text: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: "bold",
     color: "white"
   },

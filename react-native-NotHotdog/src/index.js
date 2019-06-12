@@ -134,7 +134,6 @@ export default class App extends Component {
           flashMode={RNCamera.Constants.FlashMode.off}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
-          type="front"
         >
         {
           Platform.OS === "ios" && evaluating ?

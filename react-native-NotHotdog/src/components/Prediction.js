@@ -34,18 +34,42 @@ class Prediction extends Component {
 
   componentWillReceiveProps(nextProps){
     const { rects } = nextProps;
-    const classes = this.getNumbers(rects)
+    const classes = this.getNames(rects)
     this.setState({ rects, classes })
     console.log('received Props', rects)
   }
 
-  getNumbers = (array) => {
-    let yoyo = ''
+  getNames = (array) => {
+    if(array.length > 0){
+      let yoyo = []
     for(let prediction of array){
-      yoyo += prediction.detectedClass
+      let name = ''
+      switch(prediction.detectedClass){
+        case 0: 
+          name = 'colete'
+          break;
+        case 1:
+          name = 'óculos'
+          break;
+        case 2:
+          name = 'bota'
+          break;
+        case 3:
+          name = 'capacete'
+          break;
+        case 4:
+          name = 'capacete'
+          break;
+        case 6:
+          name = 'protetor'
+          break;
+      }
+      yoyo.push(name)
     }
     console.log('yoyo', yoyo)
     return yoyo
+    }
+    else return;
   }
 
 
@@ -66,7 +90,7 @@ class Prediction extends Component {
               <Circle cx={width/2} cy={height*2/3} r={height/3} />
               <Rect x="0" y="0" width={width} height={rectHeight} />
           </G>
-          <G fill={hotdog? "lime": "red"}>
+          <G fill={this.state.rects > 0 ? "lime": "red"}>
               <Circle cx={width/2} cy={height*2/3} r={height/3} />
               <Rect x="0" y="0" width={width} height={rectHeight} />
           </G>
@@ -78,7 +102,7 @@ class Prediction extends Component {
             href={require('./images/hotdog.png')}
           />
 
-          {!hotdog ?
+          {!(this.state.rects > 0) ?
             <G>
               <G x={width/2} y={height*2/3 - 2} fill="white" rotation="45" stroke="black" strokeWidth="2">
                 <Rect x="0" y="-44" width="5" height="90" />
@@ -99,13 +123,13 @@ class Prediction extends Component {
             <Text
               fill="yellow"
               stroke="black"
-              fontSize="40"
+              fontSize="30"
               fontWeight="bold"
               x={width/2}
               y={height/4 + 10}
               textAnchor="middle"
             >
-              {this.state.rects.length > 0 ?  this.state.classes : "Não é capacete"}
+              {this.state.rects.length > 0 ?  this.state.classes : "Nenhum EPI detectado"}
             </Text> 
           </Svg>
         </Animatable.View>
