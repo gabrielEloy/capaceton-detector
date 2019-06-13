@@ -127,7 +127,7 @@ class Prediction extends Component {
               y={height/4 - 5}
               textAnchor="middle"
             >
-              {this.state.rects.length > 0 ?  this.state.classes : "Nenhum EPI detectado"}
+              {this.state.rects.length > 0 ?  "EPI's detectados" : "Nenhum EPI detectado"}
             </Text> 
           </Svg>
         </Animatable.View>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  Alert,
   Platform,
   StyleSheet, 
   View, 
@@ -97,9 +98,19 @@ class ShareResult extends Component {
     }
   }
 
-  showDetected = () => {
-    console.log(this.state.classes)
+  returnNames = (array) => {
+    let result = ''
+    for(let name of array){
+      result += ` ${name}`
+    }
+    return result
   }
+  
+  showDetected = () => {
+    Alert.alert(this.state.classes > 0 ? "EPI's encontrados" : "Nenhum EPI encontrado", this.returnNames(this.state.classes))
+  }
+
+  
 
   render() {
     const {hotdog, onClear} = this.props;
