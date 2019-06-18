@@ -86,32 +86,7 @@ class Prediction extends Component {
           height={height + 10}
           width={width}
         >
-          <G fill="white" stroke="white" strokeWidth="4">
-              <Circle cx={width/2} cy={height*2/3} r={height/3} />
-          </G>
-          <G fill={this.state.rects > 0 ? "lime": "red"}>
-              <Circle cx={width/2} cy={height*2/3} r={height/3} />
-          </G>
-          <Image
-            x={(width - height/2)/2}
-            y={Platform.OS === 'ios' ? 0 - 100 + height/4 : height/3 + height/12 }
-            width={height/2}
-            height={height/2}
-            href={require('./images/hotdog.png')}
-          />
 
-          {!(this.state.rects > 0) ?
-            <G>
-              <G x={width/2} y={height*2/3 - 2} fill="white" rotation="45" stroke="black" strokeWidth="2">
-                <Rect x="0" y="-44" width="5" height="90" />
-                <Rect x="-44" y="0" width="90" height="5" />
-              </G>
-              <G x={width/2} y={height*2/3 - 2} fill="white" rotation="45">
-                <Rect x="0" y="-44" width="5" height="90" />
-                <Rect x="-44" y="0" width="90" height="5" />
-              </G> 
-            </G>: undefined
-          }
         </Svg>
         <Animatable.View style={styles.container} animation="rubberBand" delay={500}>
           <Svg
@@ -127,7 +102,7 @@ class Prediction extends Component {
               y={height/4 - 5}
               textAnchor="middle"
             >
-              {this.state.rects.length > 0 ?  this.state.classes : "Nenhum EPI detectado"}
+              {this.state.rects.length > 0 ?  "EPI's encontrados" : "Nenhum EPI detectado"}
             </Text> 
           </Svg>
         </Animatable.View>
@@ -152,6 +127,7 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     backgroundColor: 'transparent',
+    marginTop: 15
   }
 });
 

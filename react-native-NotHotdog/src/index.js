@@ -138,10 +138,10 @@ export default class App extends Component {
         {
           Platform.OS === "ios" && evaluating ?
           <View style={styles.evaluating}>
-            <ActivityIndicator size="large" color="yellow" />
+            <ActivityIndicator size="large" color="white" />
             <Svg width={screen.w} height={screen.h/3}>
               <Text
-                fill="yellow"
+                fill="white"
                 stroke="black"
                 fontWeight="bold"
                 fontSize="30"
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 0,
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     borderRadius: 40,
     padding: 15,
     paddingHorizontal: 20,

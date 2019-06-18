@@ -4,7 +4,8 @@ import {
   StyleSheet, 
   View, 
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
 import Svg,{
@@ -46,9 +47,6 @@ class ShareResult extends Component {
           name = 'bota'
           break;
         case 3:
-          name = 'capacete'
-          break;
-        case 4:
           name = 'capacete'
           break;
         case 6:
@@ -97,8 +95,15 @@ class ShareResult extends Component {
     }
   }
 
-  showDetected = () => {
-    console.log(this.state.classes)
+  namesToString = (array) => {
+    let finalString = ''
+    for(let string of array){
+      finalString += (string + ' ')
+    }
+    return finalString
+  }
+  showDetected = () => {    
+  this.state.rects > 0 ? Alert.alert("EPI's detectados", this.namesToString(this.state.classes)) : Alert.alert('Nenhum EPI detectado')
   }
 
   render() {
