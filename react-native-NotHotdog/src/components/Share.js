@@ -102,8 +102,11 @@ class ShareResult extends Component {
     }
     return finalString
   }
-  showDetected = () => {    
-  this.state.rects > 0 ? Alert.alert("EPI's detectados", this.namesToString(this.state.classes)) : Alert.alert('Nenhum EPI detectado')
+  showDetected = () => {
+  const showDetectedStrings = this.namesToString(this.state.classes)
+  this.state.classes.length > 0 ? Alert.alert("EPI's detectados", showDetectedStrings ) : Alert.alert('Nenhum EPI detectado')
+  console.log('eita rapaz', this.state.classes)
+  console.log('mudou ?', this.namesToString(this.state.classes))
   }
 
   render() {
