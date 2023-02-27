@@ -4766,6 +4766,11 @@ react-native-fs@^2.11.15:
     base-64 "^0.1.0"
     utf8 "^2.1.1"
 
+react-native-kill-packager@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-kill-packager/-/react-native-kill-packager-1.0.0.tgz#8d5dc706429805800298acabca45598d0d39b391"
+  integrity sha512-QfqjRNjybP8S49Xy0fod6MH+zMAQL8iTf3G0aOA9J0yJLE4caONhA6QEvsrS43aAWAJPIefqDnyCfyJJZ5QRvQ==
+
 react-native-share@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-1.1.3.tgz#513ea61075e2bb945d33cfda120e12592916299e"
